@@ -109,7 +109,7 @@ class Trapped_particle:
         return 1.2e-5*self.pressure(t)
 
     def buoyancy(self, t):
-        return self.g*self.volume*self.air_density(t)
+        return self.g*self.volume*self.air_density(t)*(time_scale**2)/(self.m*length_scale)
 
     def ivp_func(self, t, y): 
         '''
