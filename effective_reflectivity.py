@@ -5,6 +5,10 @@ import time
 import numpy as np
 
 def calculate_reflectivity(wl, n_0, n_s, W_0, R):
+    '''
+    Calculates the effective reflectivity of the particle when using mirror approximation.
+    Compares radiation pressure exerted on a perfectly reflective mirror to radiation pressure predicted by Kim and Kim, 2017
+    '''
     P=1
 
     z_0=math.pi*(W_0**2)/wl # rayleigh range
@@ -33,14 +37,14 @@ def calculate_reflectivity(wl, n_0, n_s, W_0, R):
         return (math.pi/3e8)*n_0*I(th1,z)*(1+re*math.cos(2*th1)-(t(th1)**2)*((math.cos(2*(th1-th_2))+re*math.cos(2*th1))/(1+(re**2)+2*re*math.cos(2*th_2))))*(R**2)*(math.sin(2*th1))
 
 
-    numerical_forces = []
+    numerical_forces = []   #Stores numerically calculated radiation pressures over a range of axial positions (z)
     z_values = np.arange(1000, 3000, 10)
 
     for z in z_values:
-        numerical_forces.append(integrate.quad(kernel_1,0,math.pi/2,args=(z))[0])
+        numerical_forces.append(integrate.quad(kernel_1,0,math.pi/2,args=(z))[0])  #Calculates forces using the numerical method for the various z positions
 
 
-    mirror_forces = []
+    mirror_forces = []  #Stores the values for the radiation pressure on a perfect sphere for the same range of z positions
     
     def p_incident(z):
         return P*(1-np.exp(-(2*R**2)/(W(z)**2)))
@@ -52,4 +56,4 @@ def calculate_reflectivity(wl, n_0, n_s, W_0, R):
         mirror_forces.append(force(z))
 
 
-    return np.mean(numerical_forces)/np.mean(mirror_forces)
+    return np.mean(numerical_forces)/np.mean(mirror_forces)   #Returns the 'effective reflectivity' the factor of difference between the perfect mirror approximation and the numerical technique.
