@@ -1,9 +1,9 @@
 #Make sure labels and values are separated by ': ' 
 #
 #Constants (All in SI units)
-Particle radius: 6e-6
+Particle radius: 5e-6
 
-Particle density: 1070
+Particle density: 1000
 Wavelength: 532e-9
 Beam divergence: 0.08309
 n_sphere: 1.56
