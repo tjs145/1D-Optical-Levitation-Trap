@@ -133,8 +133,6 @@ class Trapped_particle:
         y=sol['y']
         self.positions = y[0]
         self.velocities = y[1]
-        #self.fig, self.z_ax = plt.subplots()
-        #self.z_ax.plot(t, y[0], 'b')
 
         self.p_spectrum = np.absolute(np.fft.fft(self.positions-np.mean(self.positions)))
         self.frequencies = np.fft.fftfreq(n, (t_end*self.time_scale)/n)
