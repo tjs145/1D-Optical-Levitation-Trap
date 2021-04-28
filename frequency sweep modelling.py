@@ -1,4 +1,4 @@
-from combined_trap_model_final import Trapped_particle
+from trap_model import Trapped_particle
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
