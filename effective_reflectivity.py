@@ -6,7 +6,14 @@ import numpy as np
 
 def calculate_reflectivity(wl, n_0, n_s, W_0, R):
     '''
-    Calculates the effective reflectivity of the particle when using mirror approximation.
+    Calculates the effective reflectivity of the particle when using mirror approximation, for a system defined by the arguments:
+    
+    wl - wavelength of incident light
+    n_0 - refractive index of surrounding medium
+    n_s - refractiev index of the particle/sphere
+    W_0 - size of the beam waist
+    R - radius of the particle
+    
     Compares radiation pressure exerted on a perfectly reflective mirror to radiation pressure predicted by Kim and Kim, 2017
     (Kim, S. B., & Kim, S. S. (2006). Radiation forces on spheres in loosely focused Gaussian beam: ray-optics regime. JOSA B, 23(5), 897-903.)
     '''
@@ -18,7 +25,7 @@ def calculate_reflectivity(wl, n_0, n_s, W_0, R):
     def th2(th1): #Angle of refraction for a given angle of incidence, calculated using snells law
         return math.asin((n_0/n_s)*math.sin(th1))
         
-    def p(th1):
+    def p(th1): #The radial position for a given angle of incidence.
         return R*math.sin(th1)
     
     def r(th1):#power reflectance coefficient calculated using Fresnels equation
