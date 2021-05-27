@@ -1,9 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar  1 20:03:59 2021
+
+@author: timkl
+
+This code is used to calculate the axial component of the radiation force exerted on a transparent homogenous 
+sphere by a gaussian beam for when the particle is located on the beam axis. The theoretical approach behind it is based on the paper:
+"Radiation forces on spheres in loosely focused Gaussian beam: ray-optics regime"-Sang Bok Kim and Sang Soo Kim.
+
+"""
+
 import scipy.integrate as integrate
 import math
 import matplotlib.pyplot as plt
 import time
 
 def numerical_pressure(P, wl, n_0, n_s, W_0, R, z):
+    '''
+    calculate the axial component of the radiation pressure in newtons for a transparent sphere 
+    exerted by a gaussian laser beam when the particle is located on the beam axis. P is the beam power, wl is the beam wavelength, 
+    n_0 is the refractive index of air, n_s is the refractive index of the material that makes up
+    the target, W_0 is the beam waist, and z is the axial position with origin being the beam waist.
+    '''
     z_0=math.pi*(W_0**2)/wl # rayleigh range
 
         #angles are in radians
@@ -12,7 +30,6 @@ def numerical_pressure(P, wl, n_0, n_s, W_0, R, z):
         
     def p(th1):
         return R*math.sin(th1)
-    
     def r(th1):#power reflectance coefficient
         th_2 = th2(th1)
         return 0.5*(((math.sin(th1-th_2)**2)/math.sin(th1+th_2)**2)+((math.tan(th1-th_2)**2)/math.tan(th1+th_2)**2))

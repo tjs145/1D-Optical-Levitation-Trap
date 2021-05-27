@@ -3,12 +3,23 @@
 Created on Tue Mar  2 19:48:17 2021
 
 @author: timkl
+this code calculates the photoporetic force exerted by a gaussian beam on a transparent sphere for when the sphere 
+is on the beam axis. the theoretical approach is based  on the paper :
+SEMI-EMPIRICAL MODEL OF PHOTOPHORETIC FORCES FOR THE ENTIRE RANGE OF PRESSURES by Hans Rohatschek
+SI units are assumed for all quantities unless stated otherwise
 """
 import scipy.integrate as integrate
 import math
 
 def photophoretic_force_calculator(p, T, P, wl,n_s, n_s_i, k_p, W_0, R, z): #k_p is the spheres thermal conduction coefficent
-    
+    '''
+    this function returns the photophoretic force exerted on a particle located on the axis of a gaussian beam
+    p is the gas pressure, T is the gas temperature, P is the beam power, wl is the beam wavelength
+    n_s is the real component of the refrative index of the material of the particle being trapped, 
+    similarly n_s_i is the imaginary component,k_p is the thermal conductivity of the particle,
+    W_0 is the beam waist, R is the sphere radius, z is the axial position of the particle with the beam wasit
+    as the origin.
+    '''
     pr=p
     
 
