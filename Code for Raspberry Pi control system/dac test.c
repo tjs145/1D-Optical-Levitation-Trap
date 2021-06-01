@@ -2,7 +2,7 @@
 #include <bcm2835.h>
 #include <sys/time.h>
 
-#define SAMPLES 500000
+#define SAMPLES 1000000
 
 int set_high(){
 
