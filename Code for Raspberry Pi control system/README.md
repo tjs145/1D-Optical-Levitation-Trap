@@ -1,4 +1,4 @@
-#Code for Raspberry Pi control system
+# Code for Raspberry Pi control system
 
 These codes are designed for controlling the ADCDAC Pi Zero from AB Electronics.
 
