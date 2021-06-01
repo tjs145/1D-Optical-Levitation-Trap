@@ -2,7 +2,7 @@
 
 ## Basic Operation
 
-First initialise a 'trapped particle' object:
+First initialise a 'trapped particle' object, defined in trap_model.py:
 
     t = Trapped_particle(1e5, 0.4, parameter_filename='default_parameters.txt', length_scale=1e-6, time_scale=1e-3) 
     
