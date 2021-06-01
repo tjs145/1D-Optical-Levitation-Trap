@@ -10,7 +10,7 @@ vref=3.3 #ref voltage always 3.3v for raspberry pi
 
 adc = spidev.SpiDev()
 adc.open(0,0)
-adc.max_speed_hz = 8000000
+adc.max_speed_hz = 8000000 #Any faster than this causes glitches. 
 
 start_time=t.time()
 
@@ -37,6 +37,5 @@ plt.plot(times[100:200], voltages[100:200])
 plt.plot(times[100:200], voltages[100:200], 'rx')
 plt.xlabel('Time (s)')
 plt.ylabel('Voltage (V)')
-plt.title('1kHz 1V sine wave samples using own code with 8MHz SPI clock')
 plt.show()
 
