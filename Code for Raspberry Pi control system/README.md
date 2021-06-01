@@ -13,3 +13,5 @@ These codes are designed for controlling the ADCDAC Pi Zero from AB Electronics.
 'sample channel voltages.py' simply uses the ADC to take 1000 voltage readings from each channel, and plots the readings. This is useful for diagnosing noise in the system. 
 
 'timed sample.py' is similar. It takes samples from both channels over 5 seconds, plots them, and saves the data to three separate .txt files (one file contains channel 1 data, one for channel 2 data, and one contains the times at which the samples were taken.)
+
+'adc test.c' and 'dac test.c' experiment with using C instead of Python to control the ADC and DAC respectively, giving higher sample rates. These take 1000000 voltage inputs/outputs, measure the time taken, and output the calculated sample rate. 'adc test.c' saves the voltage and the time data to files.
